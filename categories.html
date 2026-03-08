@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpark · Categories</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+            overflow-x: hidden;
+        }
+
+        /* ========== NAVBAR (TRANSPARENT WITH ORANGE TEXT) ========== */
+        .navbar-transparent {
+            background: transparent !important;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+            z-index: 1000;
+        }
+
+        .navbar-transparent.scrolled {
+            background: rgba(10, 20, 30, 0.85) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.8rem 0;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-modern {
+            font-weight: 800;
+            font-size: 1.9rem;
+            letter-spacing: -0.03em;
+            color: #f5b042 !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-icon {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            padding: 8px;
+            border-radius: 16px;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 18px -6px #f0a11e80;
+            transform: rotate(-5deg);
+            transition: transform 0.2s ease;
+        }
+
+        .brand-modern:hover .brand-icon {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .nav-link-modern {
+            font-weight: 600;
+            color: #f5b042 !important;
+            padding: 0.6rem 1.2rem !important;
+            margin: 0 0.2rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            font-size: 1.05rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link-modern:hover,
+        .nav-link-modern.active {
+            color: white !important;
+            background: rgba(245, 176, 66, 0.2);
+        }
+
+        .btn-start-modern {
+            background: rgba(245, 176, 66, 0.15);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: #f5b042 !important;
+            border-radius: 50px;
+            padding: 0.7rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #f5b042;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-start-modern:hover {
+            background: #f5b042;
+            color: #1e2f47 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -8px #f0a11e;
+            border-color: transparent;
+        }
+
+        .btn-start-modern i {
+            color: #f5b042;
+            transition: all 0.3s;
+        }
+
+        .btn-start-modern:hover i {
+            color: #1e2f47;
+        }
+
+        .navbar-toggler-modern {
+            border: 1px solid #f5b042;
+            background: rgba(245, 176, 66, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 0.7rem 1rem;
+            border-radius: 50px;
+        }
+
+        .navbar-toggler-modern .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 176, 66, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ========== SCROLL TO TOP BUTTON ========== */
+        #scrollBtn {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            background: #f5b042;
+            color: #1e2f47;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            z-index: 99;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        #scrollBtn:hover {
+            background: #ffb85c;
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 18px 35px rgba(240, 161, 30, 0.5);
+        }
+
+        /* ========== CATEGORIES PAGE HEADER ========== */
+        .categories-header {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e2f47 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(245, 176, 66, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: floatHeader 15s infinite alternate;
+        }
+
+        .header-shape-1 { top: -100px; right: -50px; }
+        .header-shape-2 { bottom: -150px; left: -100px; background: rgba(30, 47, 71, 0.3); animation-delay: 2s; }
+        .header-shape-3 { top: 50%; left: 30%; width: 200px; height: 200px; animation-delay: 4s; }
+
+        @keyframes floatHeader {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.2); }
+        }
+
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .page-title span {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            animation: titlePulse 3s infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .page-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== CATEGORIES GRID SECTION ========== */
+        .categories-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(245, 176, 66, 0.1);
+            color: #f5b042;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(245, 176, 66, 0.2);
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #4a5f73;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Category Cards Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: cardFadeIn 0.6s ease forwards;
+            opacity: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:nth-child(1) { animation-delay: 0.05s; }
+        .category-card:nth-child(2) { animation-delay: 0.1s; }
+        .category-card:nth-child(3) { animation-delay: 0.15s; }
+        .category-card:nth-child(4) { animation-delay: 0.2s; }
+        .category-card:nth-child(5) { animation-delay: 0.25s; }
+        .category-card:nth-child(6) { animation-delay: 0.3s; }
+        .category-card:nth-child(7) { animation-delay: 0.35s; }
+        .category-card:nth-child(8) { animation-delay: 0.4s; }
+        .category-card:nth-child(9) { animation-delay: 0.45s; }
+        .category-card:nth-child(10) { animation-delay: 0.5s; }
+        .category-card:nth-child(11) { animation-delay: 0.55s; }
+        .category-card:nth-child(12) { animation-delay: 0.6s; }
+        .category-card:nth-child(13) { animation-delay: 0.65s; }
+        .category-card:nth-child(14) { animation-delay: 0.7s; }
+        .category-card:nth-child(15) { animation-delay: 0.75s; }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 45px -10px rgba(245, 176, 66, 0.3);
+            border-color: rgba(245, 176, 66, 0.3);
+        }
+
+        .category-image-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(30, 47, 71, 0.4) 70%,
+                rgba(245, 176, 66, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .category-icon {
+            position: absolute;
+            bottom: -25px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 15px 25px -8px #f0a11e;
+            z-index: 3;
+            transition: all 0.3s ease;
+            border: 4px solid white;
+            animation: iconFloat 3s infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: linear-gradient(145deg, #f0891e, #f5b042);
+        }
+
+        .category-content {
+            padding: 40px 25px 25px;
+            background: white;
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .category-card:hover .category-title {
+            color: #f5b042;
+        }
+
+        .category-description {
+            color: #4a5f73;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .category-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px 0;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f5b042;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #6c7a8d;
+        }
+
+        .category-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background: rgba(245, 176, 66, 0.1);
+            color: #f5b042;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #f5b042;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .btn-category {
+            background: transparent;
+            border: 2px solid #f5b042;
+            color: #f5b042;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-category::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-category:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-category:hover {
+            background: #f5b042;
+            color: #1e2f47;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -8px #f0a11e;
+        }
+
+        .btn-category i {
+            transition: transform 0.3s;
+        }
+
+        .btn-category:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Featured Categories Banner */
+        .featured-banner {
+            background: linear-gradient(135deg, #1e2f47 0%, #2d4b6e 100%);
+            border-radius: 50px;
+            padding: 50px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .banner-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .banner-title span {
+            color: #f5b042;
+        }
+
+        .banner-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-banner {
+            background: #f5b042;
+            color: #1e2f47;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-banner:hover {
+            background: #ffb85c;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.3);
+        }
+
+        .banner-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(245, 176, 66, 0.1);
+            filter: blur(50px);
+            z-index: 1;
+        }
+
+        .banner-shape-1 {
+            top: -100px;
+            right: -50px;
+            animation: floatBanner 10s infinite alternate;
+        }
+
+        .banner-shape-2 {
+            bottom: -150px;
+            left: -100px;
+            background: rgba(255,255,255,0.1);
+            animation: floatBanner 15s infinite alternate-reverse;
+        }
+
+        @keyframes floatBanner {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.2); }
+        }
+
+        /* ========== FOOTER SECTION ========== */
+        .footer-section {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e2f47 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(240, 161, 30, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -50px;
+            animation: floatShape 15s infinite alternate;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            left: -100px;
+            background: rgba(255, 255, 255, 0.02);
+            animation: floatShape 20s infinite alternate-reverse;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 20%;
+            background: rgba(240, 161, 30, 0.03);
+            animation: floatShape 12s infinite alternate;
+        }
+
+        @keyframes floatShape {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.2); }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo i {
+            font-size: 2.5rem;
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sparkPulse 2s infinite;
+        }
+
+        @keyframes sparkPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+        }
+
+        .footer-logo span {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #f5b042;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #f5b042, transparent);
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-menu li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-menu li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-menu li a:hover {
+            color: #f5b042;
+            transform: translateX(8px);
+        }
+
+        .newsletter-form {
+            margin-bottom: 1.8rem;
+        }
+
+        .input-group {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 3px;
+        }
+
+        .input-group input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            flex: 1;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-subscribe {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            border: none;
+            border-radius: 50px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-subscribe:hover {
+            transform: scale(1.05) rotate(15deg);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-item i {
+            color: #f5b042;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-end;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: #f5b042;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2.5rem;
+            }
+            .legal-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .navbar-transparent {
+                background: rgba(10, 20, 30, 0.5) !important;
+                backdrop-filter: blur(10px);
+                padding: 0.8rem 0;
+            }
+            #scrollBtn {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            .featured-banner {
+                padding: 30px 20px;
+            }
+            .banner-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR (SAME AS HOMEPAGE) ========== -->
+<nav class="navbar navbar-expand-lg navbar-transparent fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand brand-modern" href="#">
+            <span class="brand-icon"><i class="fas fa-bolt"></i></span>
+            SkillSpark
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-modern" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUnique" 
+                aria-controls="navbarUnique" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarUnique">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="skills.html"><i class="fas fa-code me-1"></i>Skills</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern active" href="categories.html"><i class="fas fa-layer-group me-1"></i>Categories</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="about.html"><i class="fas fa-info-circle me-1"></i>About</a></li>
+            </ul>
+            <div class="d-flex">
+                <a href="startlearning.html" class="btn btn-start-modern">
+                    <i class="fas fa-graduation-cap"></i> 
+                    <span>Start Learning</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== CATEGORIES PAGE HEADER ========== -->
+<section class="categories-header">
+    <div class="header-shape header-shape-1"></div>
+    <div class="header-shape header-shape-2"></div>
+    <div class="header-shape header-shape-3"></div>
+    <div class="container">
+        <h1 class="page-title">Explore <span>Categories</span></h1>
+        <p class="page-subtitle">Discover your perfect learning path across 15+ categories. From technology to wellness, we've got something for everyone.</p>
+    </div>
+</section>
+
+<!-- ========== CATEGORIES GRID SECTION ========== -->
+<section class="categories-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-bolt me-2"></i>LEARNING PATHS</span>
+            <h2>Browse by Category</h2>
+            <p>Find the skills that match your interests and career goals</p>
+        </div>
+
+        <!-- Categories Grid - 15 Cards -->
+        <div class="categories-grid">
+            <!-- Category 1: Technology -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Technology" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Technology</h3>
+                    <p class="category-description">Master coding, data science, AI, cybersecurity, and cloud computing. Build the future with tech skills.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">AI</span>
+                        <span class="skill-tag">Cloud</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Technology <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 2: Design -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Design" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Design</h3>
+                    <p class="category-description">Learn graphic design, UI/UX, typography, branding, and digital illustration. Create beautiful experiences.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">Illustrator</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Design <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 3: Business -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Business</h3>
+                    <p class="category-description">Master entrepreneurship, leadership, negotiation, project management, and business strategy.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">22</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">18k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Negotiation</span>
+                        <span class="skill-tag">PMP</span>
+                        <span class="skill-tag">Strategy</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Business <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 4: Marketing -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Marketing" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Marketing</h3>
+                    <p class="category-description">Learn digital marketing, SEO, content marketing, social media, and copywriting. Grow brands online.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">16</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">14k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">Social Media</span>
+                        <span class="skill-tag">Copywriting</span>
+                        <span class="skill-tag">Analytics</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Marketing <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 5: Life Skills -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Life Skills" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Life Skills</h3>
+                    <p class="category-description">Master emotional intelligence, time management, public speaking, and personal development.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">20</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">25k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">EQ</span>
+                        <span class="skill-tag">Time Mgmt</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Mindfulness</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Life Skills <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 6: Creative Arts -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Creative Arts" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Creative Arts</h3>
+                    <p class="category-description">Learn photography, video editing, creative writing, music production, and digital art.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">9k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Photography</span>
+                        <span class="skill-tag">Video Editing</span>
+                        <span class="skill-tag">Writing</span>
+                        <span class="skill-tag">Music</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Creative Arts <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 7: Health & Wellness -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Health" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Health & Wellness</h3>
+                    <p class="category-description">Master yoga, nutrition, mental health, fitness, and mindfulness for a balanced life.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">14</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">20k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Yoga</span>
+                        <span class="skill-tag">Nutrition</span>
+                        <span class="skill-tag">Meditation</span>
+                        <span class="skill-tag">Fitness</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Health <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 8: Finance -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Finance" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Finance</h3>
+                    <p class="category-description">Learn investing, personal finance, accounting, trading, and financial planning for wealth.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">16k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Investing</span>
+                        <span class="skill-tag">Budgeting</span>
+                        <span class="skill-tag">Accounting</span>
+                        <span class="skill-tag">Trading</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Finance <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 9: Communication -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Communication" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Communication</h3>
+                    <p class="category-description">Master public speaking, presentation skills, negotiation, and interpersonal communication.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">19k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Presentation</span>
+                        <span class="skill-tag">Writing</span>
+                        <span class="skill-tag">Listening</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Communication <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 10: Data Science -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Science" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Data Science</h3>
+                    <p class="category-description">Learn data analysis, machine learning, Python, SQL, and data visualization. Make data-driven decisions.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">16</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">11k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">ML</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Data Science <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 11: Language Learning -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Languages" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Languages</h3>
+                    <p class="category-description">Master Spanish, French, English, Mandarin, and more. Open doors to global opportunities.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">22k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Spanish</span>
+                        <span class="skill-tag">French</span>
+                        <span class="skill-tag">Mandarin</span>
+                        <span class="skill-tag">English</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Languages <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 12: Personal Development -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Personal Development" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Personal Development</h3>
+                    <p class="category-description">Master productivity, goal setting, habit building, and mindset for success.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">14</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Productivity</span>
+                        <span class="skill-tag">Goal Setting</span>
+                        <span class="skill-tag">Habits</span>
+                        <span class="skill-tag">Mindset</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Personal Dev <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 13: Teaching & Education -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teaching" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Teaching & Education</h3>
+                    <p class="category-description">Learn instructional design, curriculum development, and effective teaching methods.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Instructional Design</span>
+                        <span class="skill-tag">Curriculum</span>
+                        <span class="skill-tag">Training</span>
+                        <span class="skill-tag">Mentoring</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Teaching <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 14: Engineering -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="image/Engineering.avif" alt="Engineering"> class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Engineering</h3>
+                    <p class="category-description">Master mechanical, electrical, civil, and software engineering fundamentals.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">18</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Mechanical</span>
+                        <span class="skill-tag">Electrical</span>
+                        <span class="skill-tag">Civil</span>
+                        <span class="skill-tag">Software</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Engineering <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Category 15: Sales -->
+            <div class="category-card">
+                <div class="category-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sales" class="category-image">
+                    <div class="category-overlay"></div>
+                    <div class="category-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Sales</h3>
+                    <p class="category-description">Master sales techniques, negotiation, customer relationships, and closing deals.</p>
+                    <div class="category-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">9</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">13k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                    </div>
+                    <div class="category-skills">
+                        <span class="skill-tag">Sales Techniques</span>
+                        <span class="skill-tag">Negotiation</span>
+                        <span class="skill-tag">CRM</span>
+                        <span class="skill-tag">Closing</span>
+                    </div>
+                    <a href="#" class="btn-category">Explore Sales <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Banner -->
+        <div class="featured-banner">
+            <div class="banner-shape banner-shape-1"></div>
+            <div class="banner-shape banner-shape-2"></div>
+            <div class="banner-content">
+                <h2 class="banner-title">New <span>AI & Machine Learning</span> Category</h2>
+                <p class="banner-text">Master the future with our comprehensive AI courses. From basics to advanced neural networks.</p>
+                <a href="#" class="btn-banner">
+                    <i class="fas fa-brain"></i> Explore AI Courses
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Additional Categories Row (optional) -->
+        <div class="text-center mt-5">
+            <p style="color: #6c7a8d; font-size: 1.1rem;">
+                <i class="fas fa-sparkles me-2" style="color: #f5b042;"></i>
+                More categories coming soon: Blockchain, Robotics, Sustainability, and more!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER (SAME AS HOMEPAGE) ========== -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>SkillSpark</span>
+                </div>
+                <p class="footer-description">Ignite your potential with quick, practical skills. Learn something new in minutes and transform your life.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-title">Quick Links</h5>
+                <ul class="footer-menu">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="skills.html"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                    <li><a href="categories.html"><i class="fas fa-chevron-right"></i> Categories</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Popular Categories</h5>
+                <ul class="footer-menu">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Technology</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Design</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Business</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Life Skills</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Stay Updated</h5>
+                <p class="newsletter-text">Subscribe to get new category alerts.</p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn-subscribe" type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@skillspark.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2026 SkillSpark. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="legal-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-shape shape-1"></div>
+    <div class="footer-shape shape-2"></div>
+    <div class="footer-shape shape-3"></div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNavbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Scroll to top button logic
+    const scrollBtn = document.getElementById('scrollBtn');
+    
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+    
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

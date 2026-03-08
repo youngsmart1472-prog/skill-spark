@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpark · learn useful skills quickly</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap 5 CSS (light, modern, responsive) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 (for spark icon & smooth icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font (optional but nice) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+
+<!-- ========== NAVBAR (TRANSPARENT WITH ORANGE TEXT) ========== -->
+<nav class="navbar navbar-expand-lg navbar-transparent fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand brand-modern" href="#">
+            <span class="brand-icon"><i class="fas fa-bolt"></i></span>
+            SkillSpark
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-modern" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUnique" 
+                aria-controls="navbarUnique" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarUnique">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link nav-link-modern active" href="#"><i class="fas fa-home me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="skills.html"><i class="fas fa-code me-1"></i>Skills</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="categories.html"><i class="fas fa-layer-group me-1"></i>Categories</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="about.html"><i class="fas fa-info-circle me-1"></i>About</a></li>
+            </ul>
+            <div class="d-flex">
+                <a href="startlearning.html" class="btn btn-start-modern">
+                    <i class="fas fa-graduation-cap"></i> 
+                    <span>Start Learning</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== HERO WITH SINGLE IMAGE ANIMATION ========== -->
+<section class="hero-unique">
+    <!-- animated image container -->
+    <div class="hero-slider">
+        <div class="slider-track">
+            <!-- single image with multiple animations -->
+            <div class="slide">
+                <img src="image/learning.webp" alt="learning" class="hero-image">
+                <!-- animated overlay effects -->
+                <div class="image-glow"></div>
+                <div class="image-particles">
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- dark overlay with gradient -->
+    <div class="hero-overlay"></div>
+    
+    <!-- floating shapes -->
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+    <div class="shape-3"></div>
+
+    <!-- hero content -->
+    <div class="container hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-bolt"></i> ignite your potential 
+        </div>
+        <h1 class="hero-title-unique">
+            Learn <span>Powerful Skills</span><br> in Minutes
+        </h1>
+        <p class="hero-description-unique">
+            SkillSpark delivers bite-sized lessons in life & tech — practical, focused, and designed for your busy schedule.
+        </p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 gap-sm-4">
+            <a href="startlearning.html" class="btn btn-hero-primary">
+                <i class="fas fa-rocket"></i> Start Learning
+            </a>
+            <a href="skills.html" class="btn btn-hero-secondary">
+                <i class="fas fa-compass"></i> Explore Skills
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="why-skillyspark py-5">
+    <div class="container">
+        <!-- Section header -->
+        <div class="text-center mb-5">
+            <span class="section-badge">
+                <i class="fas fa-bolt me-2"></i> WHY SKILLSPARK
+            </span>
+            <h2 class="section-title display-5 fw-bold mt-3">Learn Smarter, Not Harder</h2>
+            <p class="section-subtitle lead text-muted mx-auto" style="max-width: 700px;">
+                We've designed the perfect learning experience for busy people who want real results.
+            </p>
+        </div>
+
+        <!-- Cards row - First row (4 cards) -->
+        <div class="row g-4 mb-4">
+            <!-- Card 1: Learn in Minutes -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Learn in minutes" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Learn in Minutes</h3>
+                        <p class="card-text">Bite-sized lessons that fit your busy schedule. No fluff, just what you need to know.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> 5-10 min lessons</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Practical Skills -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Practical skills" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Practical Skills</h3>
+                        <p class="card-text">Learn things you can use today. From coding to cooking, we focus on real-world applications.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> 100+ real skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Expert Guidance -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Expert guidance" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Expert Guidance</h3>
+                        <p class="card-text">Learn from industry professionals who've been there and done that. No theory, just experience.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> Industry experts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Free & Easy -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Free and easy" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Free & Easy</h3>
+                        <p class="card-text">Start learning today with our free tier. No credit card required, just your curiosity.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> Forever free tier</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards row - Second row (4 more cards) -->
+        <div class="row g-4">
+            <!-- Card 5: Interactive Learning -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Interactive learning" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Interactive Learning</h3>
+                        <p class="card-text">Hands-on exercises and quizzes that keep you engaged. Learn by doing, not just watching.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> 500+ exercises</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Community Support -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community support" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Community Support</h3>
+                        <p class="card-text">Join thousands of learners. Share progress, ask questions, and grow together.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> 50k+ learners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Certificates -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="image/certificate.png" alt="Certificates"> class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Earn Certificates</h3>
+                        <p class="card-text">Showcase your achievements with shareable certificates for every completed skill.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> Verified badges</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Mobile Friendly -->
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-card">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile friendly" class="card-image">
+                        <div class="card-overlay"></div>
+                        <div class="card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Mobile Friendly</h3>
+                        <p class="card-text">Learn anytime, anywhere. Fully optimized for your phone, tablet, or desktop.</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-check-circle"></i> Learn on the go</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: Bottom CTA -->
+        <div class="text-center mt-5 pt-3">
+            <a href="#" class="btn btn-explore-more">
+                <i class="fas fa-rocket me-2"></i> Explore All Features
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- ========== POPULAR SKILLS SECTION ========== -->
+<section class="popular-skills py-5">
+    <div class="container">
+        <!-- Section header -->
+        <div class="text-center mb-5">
+            <span class="skills-badge">
+                <i class="fas fa-fire me-2"></i> POPULAR SKILLS
+            </span>
+            <h2 class="skills-title display-5 fw-bold mt-3">Skills That Spark Your Future</h2>
+            <p class="skills-subtitle lead text-muted mx-auto" style="max-width: 700px;">
+                Join thousands of learners mastering these in-demand skills today.
+            </p>
+        </div>
+
+        <!-- Skills Cards Grid -->
+        <div class="row g-4">
+            <!-- Card 1: Coding Basics -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coding" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Beginner</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Coding Basics</h3>
+                                <p class="skill-desc">Learn the fundamentals of programming with Python, JavaScript, and more. Build your first app.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 8 hours</span>
+                                    <span><i class="fas fa-users"></i> 12k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Graphic Design -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Graphic Design</h3>
+                                <p class="skill-desc">Create beautiful designs easily with Canva, Photoshop, and Illustrator. Master visual storytelling.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 12 hours</span>
+                                    <span><i class="fas fa-users"></i> 8k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Money Management -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Money Management" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Beginner</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Money Management</h3>
+                                <p class="skill-desc">Learn how to save, budget, and manage money wisely. Build wealth and financial freedom.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 6 hours</span>
+                                    <span><i class="fas fa-users"></i> 15k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Public Speaking -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Public Speaking" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">All Levels</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Public Speaking</h3>
+                                <p class="skill-desc">Improve your communication skills and confidence. Present with impact and influence.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 10 hours</span>
+                                    <span><i class="fas fa-users"></i> 7k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Digital Marketing -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Marketing" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Intermediate</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Digital Marketing</h3>
+                                <p class="skill-desc">Master SEO, social media, and content marketing. Grow brands and reach customers online.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 15 hours</span>
+                                    <span><i class="fas fa-users"></i> 10k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Data Analysis -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analysis" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Advanced</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Data Analysis</h3>
+                                <p class="skill-desc">Learn to analyze data with Excel, SQL, and Python. Make data-driven decisions.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 20 hours</span>
+                                    <span><i class="fas fa-users"></i> 6k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Emotional Intelligence -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Emotional Intelligence" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Beginner</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Emotional Intelligence</h3>
+                                <p class="skill-desc">Understand emotions, build better relationships, and lead with empathy.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 8 hours</span>
+                                    <span><i class="fas fa-users"></i> 9k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Photography -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Photography" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">All Levels</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Photography</h3>
+                                <p class="skill-desc">Capture stunning photos. Master composition, lighting, and editing techniques.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 12 hours</span>
+                                    <span><i class="fas fa-users"></i> 5k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Time Management -->
+            <div class="col-lg-4 col-md-6">
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <div class="skill-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Time Management" class="skill-image">
+                                <div class="skill-image-overlay"></div>
+                                <div class="skill-level">Beginner</div>
+                            </div>
+                            <div class="skill-content">
+                                <h3 class="skill-title">Time Management</h3>
+                                <p class="skill-desc">Boost productivity, beat procrastination, and get more done in less time.</p>
+                                <div class="skill-meta">
+                                    <span><i class="fas fa-clock"></i> 5 hours</span>
+                                    <span><i class="fas fa-users"></i> 20k+ learners</span>
+                                </div>
+                                <a href="#" class="btn-skill">Start Learning <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Skills Button -->
+        <div class="text-center mt-5">
+            <a href="#" class="btn-view-all">
+                <i class="fas fa-compass me-2"></i> Explore All Skills
+                <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- ========== ABOUT SKILLSPARK SECTION ========== -->
+<section class="about-section py-5">
+    <div class="container">
+        <!-- Section header -->
+        <div class="text-center mb-5">
+            <span class="about-badge">
+                <i class="fas fa-info-circle me-2"></i> ABOUT US
+            </span>
+            <h2 class="about-title display-5 fw-bold mt-3">About SkillSpark</h2>
+            <p class="about-subtitle lead text-muted mx-auto" style="max-width: 700px;">
+                We're on a mission to make skill learning accessible, practical, and enjoyable for everyone.
+            </p>
+        </div>
+
+        <div class="row align-items-center g-5">
+            <!-- Left side: Animated illustration with floating elements -->
+            <div class="col-lg-6">
+                <div class="illustration-wrapper">
+                    <!-- Main illustration image -->
+                    <div class="main-illustration">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Learning illustration" class="illustration-img">
+                        <div class="illustration-overlay"></div>
+                        
+                        <!-- Floating skill tags (animated) -->
+                        <div class="floating-tag tag-1">
+                            <i class="fas fa-code"></i>
+                            <span>Coding</span>
+                        </div>
+                        <div class="floating-tag tag-2">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Design</span>
+                        </div>
+                        <div class="floating-tag tag-3">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Finance</span>
+                        </div>
+                        <div class="floating-tag tag-4">
+                            <i class="fas fa-camera"></i>
+                            <span>Photo</span>
+                        </div>
+                        <div class="floating-tag tag-5">
+                            <i class="fas fa-microphone"></i>
+                            <span>Speaking</span>
+                        </div>
+                        <div class="floating-tag tag-6">
+                            <i class="fas fa-brain"></i>
+                            <span>EQ</span>
+                        </div>
+
+                        <!-- Animated circles background -->
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <div class="circle circle-3"></div>
+                        <div class="circle circle-4"></div>
+                        
+                        <!-- Floating learning icons -->
+                        <div class="floating-icon icon-1">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="floating-icon icon-2">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="floating-icon icon-3">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="floating-icon icon-4">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: About content -->
+            <div class="col-lg-6">
+                <div class="about-content-wrapper">
+                    <div class="about-highlight">
+                        <span class="highlight-badge">Why choose us</span>
+                        <h3 class="about-heading">Learn Skills That <span class="text-gradient">Matter</span></h3>
+                    </div>
+                    
+                    <p class="about-description">
+                        SkillSpark was born from a simple idea: learning should be quick, practical, and accessible to everyone. We believe that everyone has the potential to learn new skills and transform their lives.
+                    </p>
+
+                    <!-- Features grid -->
+                    <div class="features-grid">
+                        <!-- Feature 1: Practical Learning -->
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper practical">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>100% Practical</h4>
+                                <p>Learn by doing with real-world projects and exercises</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2: Easy Learning -->
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper easy">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Easy to Follow</h4>
+                                <p>Bite-sized lessons designed for busy people</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3: Beginner Friendly -->
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper beginner">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Beginner Friendly</h4>
+                                <p>No prior experience needed to start learning</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 4: Expert Teachers -->
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper expert">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expert Teachers</h4>
+                                <p>Learn from industry professionals</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 5: Flexible Schedule -->
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper flexible">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Flexible Schedule</h4>
+                                <p>Learn at your own pace, anytime anywhere</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 6: Community Support -->
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper community">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Community Support</h4>
+                                <p>Join thousands of motivated learners</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats counter -->
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="50">50</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="10">10</div>
+                            <div class="stat-label">Categories</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="10000">10k+</div>
+                            <div class="stat-label">Learners</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="500">500+</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <a href="#" class="btn-about">
+                        <i class="fas fa-bolt me-2"></i> Start Your Journey
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- ========== FOOTER SECTION ========== -->
+<footer class="footer-section">
+    <div class="container">
+        <!-- Main footer content -->
+        <div class="row g-4">
+            <!-- Column 1: Brand and description -->
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>SkillSpark</span>
+                    </div>
+                    <p class="footer-description">
+                        Ignite your potential with quick, practical skills. Learn something new in minutes and transform your life.
+                    </p>
+                    
+                    <!-- Social media links -->
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="col-lg-2 col-md-6">
+                <div class="footer-links">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-menu">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="skills.html"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                        <li><a href="categories.html"><i class="fas fa-chevron-right"></i> Categories</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 3: Popular Skills -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-links">
+                    <h5 class="footer-title">Popular Skills</h5>
+                    <ul class="footer-menu">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Coding Basics</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Graphic Design</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Money Management</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Public Speaking</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Digital Marketing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Data Analysis</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Column 4: Newsletter & Contact -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-newsletter">
+                    <h5 class="footer-title">Stay Updated</h5>
+                    <p class="newsletter-text">Subscribe to get new skill alerts and learning tips.</p>
+                    
+                    <!-- Newsletter form -->
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                            <button class="btn-subscribe" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Contact info -->
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@skillspark.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer bottom with copyright and legal links -->
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="copyright">
+                        &copy; 2026 SkillSpark. All rights reserved. Made with <i class="fas fa-heart" style="color: #f0a11e;"></i> for learners.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated background elements -->
+    <div class="footer-shape shape-1"></div>
+    <div class="footer-shape shape-2"></div>
+    <div class="footer-shape shape-3"></div>
+</footer>
+
+
+
+
+<!-- scroll to top button -->
+<button id="scrollBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+<script>
+    // scroll to top logic
+    const scrollBtn = document.getElementById('scrollBtn');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // navbar background change on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNavbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
+
+</body>
+</html>

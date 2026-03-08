@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpark · 18 Skills to Master</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ========== NAVBAR (TRANSPARENT WITH ORANGE TEXT) ========== */
+        .navbar-transparent {
+            background: transparent !important;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+            z-index: 1000;
+        }
+
+        .navbar-transparent.scrolled {
+            background: rgba(10, 20, 30, 0.85) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.8rem 0;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-modern {
+            font-weight: 800;
+            font-size: 1.9rem;
+            letter-spacing: -0.03em;
+            color: #f5b042 !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-icon {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            padding: 8px;
+            border-radius: 16px;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 18px -6px #f0a11e80;
+            transform: rotate(-5deg);
+            transition: transform 0.2s ease;
+        }
+
+        .brand-modern:hover .brand-icon {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .nav-link-modern {
+            font-weight: 600;
+            color: #f5b042 !important;
+            padding: 0.6rem 1.2rem !important;
+            margin: 0 0.2rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            font-size: 1.05rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link-modern:hover,
+        .nav-link-modern.active {
+            color: white !important;
+            background: rgba(245, 176, 66, 0.2);
+        }
+
+        .btn-start-modern {
+            background: rgba(245, 176, 66, 0.15);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: #f5b042 !important;
+            border-radius: 50px;
+            padding: 0.7rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #f5b042;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-start-modern:hover {
+            background: #f5b042;
+            color: #1e2f47 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -8px #f0a11e;
+            border-color: transparent;
+        }
+
+        .btn-start-modern i {
+            color: #f5b042;
+            transition: all 0.3s;
+        }
+
+        .btn-start-modern:hover i {
+            color: #1e2f47;
+        }
+
+        .navbar-toggler-modern {
+            border: 1px solid #f5b042;
+            background: rgba(245, 176, 66, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 0.7rem 1rem;
+            border-radius: 50px;
+        }
+
+        .navbar-toggler-modern .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 176, 66, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ========== SCROLL TO TOP BUTTON ========== */
+        #scrollBtn {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            background: #f5b042;
+            color: #1e2f47;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            z-index: 99;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        #scrollBtn:hover {
+            background: #ffb85c;
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 18px 35px rgba(240, 161, 30, 0.5);
+        }
+
+        /* ========== SKILLS PAGE HEADER ========== */
+        .skills-page-header {
+            padding: 160px 0 60px;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e2f47 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(245, 176, 66, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: floatHeader 15s infinite alternate;
+        }
+
+        .header-shape-1 { top: -100px; right: -50px; }
+        .header-shape-2 { bottom: -150px; left: -100px; background: rgba(30, 47, 71, 0.3); animation-delay: 2s; }
+        .header-shape-3 { top: 50%; left: 30%; width: 200px; height: 200px; animation-delay: 4s; }
+
+        @keyframes floatHeader {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.2); }
+        }
+
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .page-title span {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            animation: titlePulse 3s infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .page-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SKILLS CATEGORY TABS ========== */
+        .category-tabs {
+            padding: 40px 0 20px;
+            background: white;
+            position: sticky;
+            top: 76px;
+            z-index: 100;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: 1px solid #e0e0e0;
+            background: white;
+            color: #4a5f73;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: #f5b042;
+            color: #1e2f47;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px #f0a11e;
+        }
+
+        /* ========== SKILLS GRID SECTION ========== */
+        .skills-grid-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(245, 176, 66, 0.1);
+            color: #f5b042;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(245, 176, 66, 0.2);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #4a5f73;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Cards Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: cardFadeIn 0.6s ease forwards;
+            opacity: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Staggered animations for 18 cards */
+        .skill-card:nth-child(1) { animation-delay: 0.05s; }
+        .skill-card:nth-child(2) { animation-delay: 0.1s; }
+        .skill-card:nth-child(3) { animation-delay: 0.15s; }
+        .skill-card:nth-child(4) { animation-delay: 0.2s; }
+        .skill-card:nth-child(5) { animation-delay: 0.25s; }
+        .skill-card:nth-child(6) { animation-delay: 0.3s; }
+        .skill-card:nth-child(7) { animation-delay: 0.35s; }
+        .skill-card:nth-child(8) { animation-delay: 0.4s; }
+        .skill-card:nth-child(9) { animation-delay: 0.45s; }
+        .skill-card:nth-child(10) { animation-delay: 0.5s; }
+        .skill-card:nth-child(11) { animation-delay: 0.55s; }
+        .skill-card:nth-child(12) { animation-delay: 0.6s; }
+        .skill-card:nth-child(13) { animation-delay: 0.65s; }
+        .skill-card:nth-child(14) { animation-delay: 0.7s; }
+        .skill-card:nth-child(15) { animation-delay: 0.75s; }
+        .skill-card:nth-child(16) { animation-delay: 0.8s; }
+        .skill-card:nth-child(17) { animation-delay: 0.85s; }
+        .skill-card:nth-child(18) { animation-delay: 0.9s; }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .skill-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 45px -10px rgba(245, 176, 66, 0.3);
+            border-color: rgba(245, 176, 66, 0.3);
+        }
+
+        .skill-image-wrapper {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .skill-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .skill-card:hover .skill-image {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .skill-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(30, 47, 71, 0.3) 70%,
+                rgba(245, 176, 66, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .skill-level {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            color: #1e2f47;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: levelPulse 2s infinite;
+        }
+
+        @keyframes levelPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .skill-category {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(245, 176, 66, 0.9);
+            color: #1e2f47;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-content {
+            padding: 20px;
+            background: white;
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .skill-card:hover .skill-title {
+            color: #f5b042;
+        }
+
+        .skill-description {
+            color: #4a5f73;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .skill-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: #6c7a8d;
+        }
+
+        .skill-meta i {
+            color: #f5b042;
+            margin-right: 4px;
+        }
+
+        .skill-progress {
+            margin-bottom: 15px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #4a5f73;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar-custom {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f5b042, #f0891e);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1s ease;
+            animation: progressFill 1.5s ease forwards;
+        }
+
+        @keyframes progressFill {
+            from { width: 0; }
+            to { width: var(--progress); }
+        }
+
+        .skill-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+            padding-top: 15px;
+            margin-top: auto;
+        }
+
+        .skill-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f5b042;
+        }
+
+        .skill-price span {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #6c7a8d;
+        }
+
+        .btn-skill {
+            background: transparent;
+            border: 2px solid #f5b042;
+            color: #f5b042;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-skill:hover {
+            background: #f5b042;
+            color: #1e2f47;
+            transform: translateX(5px);
+            box-shadow: 0 10px 20px -5px #f0a11e;
+        }
+
+        /* ========== LOAD MORE BUTTON ========== */
+        .load-more-wrapper {
+            text-align: center;
+            margin: 60px 0 20px;
+        }
+
+        .btn-load-more {
+            background: transparent;
+            border: 2px solid #1e2f47;
+            color: #1e2f47;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-load-more:hover {
+            background: #1e2f47;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -8px #1e2f47;
+        }
+
+        .btn-load-more i {
+            transition: transform 0.3s;
+        }
+
+        .btn-load-more:hover i {
+            transform: translateY(5px);
+        }
+
+        /* ========== FOOTER SECTION ========== */
+        .footer-section {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e2f47 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .footer-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(240, 161, 30, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -50px;
+            animation: floatShape 15s infinite alternate;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            left: -100px;
+            background: rgba(255, 255, 255, 0.02);
+            animation: floatShape 20s infinite alternate-reverse;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 20%;
+            background: rgba(240, 161, 30, 0.03);
+            animation: floatShape 12s infinite alternate;
+        }
+
+        @keyframes floatShape {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.2); }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo i {
+            font-size: 2.5rem;
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sparkPulse 2s infinite;
+        }
+
+        @keyframes sparkPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+        }
+
+        .footer-logo span {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #f5b042;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #f5b042, transparent);
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-menu li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-menu li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-menu li a:hover {
+            color: #f5b042;
+            transform: translateX(8px);
+        }
+
+        .newsletter-form {
+            margin-bottom: 1.8rem;
+        }
+
+        .input-group {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 3px;
+        }
+
+        .input-group input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            flex: 1;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-subscribe {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            border: none;
+            border-radius: 50px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-subscribe:hover {
+            transform: scale(1.05) rotate(15deg);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-item i {
+            color: #f5b042;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-end;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: #f5b042;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2.5rem;
+            }
+            .legal-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .navbar-transparent {
+                background: rgba(10, 20, 30, 0.5) !important;
+                backdrop-filter: blur(10px);
+                padding: 0.8rem 0;
+            }
+            #scrollBtn {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR (SAME AS HOMEPAGE) ========== -->
+<nav class="navbar navbar-expand-lg navbar-transparent fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand brand-modern" href="#">
+            <span class="brand-icon"><i class="fas fa-bolt"></i></span>
+            SkillSpark
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-modern" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUnique" 
+                aria-controls="navbarUnique" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarUnique">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern active" href="skills.html"><i class="fas fa-code me-1"></i>Skills</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="categories.html"><i class="fas fa-layer-group me-1"></i>Categories</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="about.html"><i class="fas fa-info-circle me-1"></i>About</a></li>
+            </ul>
+            <div class="d-flex">
+                <a href="startlearning.html" class="btn btn-start-modern">
+                    <i class="fas fa-graduation-cap"></i> 
+                    <span>Start Learning</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== SKILLS PAGE HEADER ========== -->
+<section class="skills-page-header">
+    <div class="header-shape header-shape-1"></div>
+    <div class="header-shape header-shape-2"></div>
+    <div class="header-shape header-shape-3"></div>
+    <div class="container">
+        <h1 class="page-title">Explore <span>600+ Skills</span></h1>
+        <p class="page-subtitle">Master in-demand skills with our curated courses. From tech to life skills, we've got you covered.</p>
+    </div>
+</section>
+
+<!-- ========== CATEGORY TABS ========== -->
+<section class="category-tabs">
+    <div class="container">
+        <div class="tabs-wrapper">
+            <button class="tab-btn active">All Skills</button>
+            <button class="tab-btn">Technology</button>
+            <button class="tab-btn">Design</button>
+            <button class="tab-btn">Business</button>
+            <button class="tab-btn">Life Skills</button>
+            <button class="tab-btn">Creative</button>
+            <button class="tab-btn">Health</button>
+            <button class="tab-btn">Marketing</button>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SKILLS GRID - 18 CARDS ========== -->
+<section class="skills-grid-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-bolt me-2"></i>POPULAR SKILLS</span>
+            <h2>18 Skills to Master Today</h2>
+            <p>Join thousands of learners mastering these in-demand skills</p>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Card 1: Coding Basics -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coding" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Technology</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Coding Basics</h3>
+                    <p class="skill-description">Learn programming fundamentals with Python, JavaScript, and HTML. Build your first app.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 12 hours</span>
+                        <span><i class="fas fa-users"></i> 15.2k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>94%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 94%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">Free</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Graphic Design -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Intermediate</span>
+                    <span class="skill-category">Design</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Graphic Design</h3>
+                    <p class="skill-description">Master Canva, Photoshop, and Illustrator. Create stunning visuals and brand identities.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 18 hours</span>
+                        <span><i class="fas fa-users"></i> 12.8k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$49</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Money Management -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Money Management" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Business</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Money Management</h3>
+                    <p class="skill-description">Learn budgeting, investing, and wealth building strategies for financial freedom.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 8 hours</span>
+                        <span><i class="fas fa-users"></i> 21.5k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>91%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 91%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">Free</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Public Speaking -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Public Speaking" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">All Levels</span>
+                    <span class="skill-category">Life Skills</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Public Speaking</h3>
+                    <p class="skill-description">Overcome fear and deliver powerful presentations that captivate any audience.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 10 hours</span>
+                        <span><i class="fas fa-users"></i> 9.7k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>86%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$29</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Digital Marketing -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Marketing" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Intermediate</span>
+                    <span class="skill-category">Marketing</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Digital Marketing</h3>
+                    <p class="skill-description">Master SEO, social media, email marketing, and Google Ads to grow any business.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 24 hours</span>
+                        <span><i class="fas fa-users"></i> 18.3k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$79</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Data Analysis -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analysis" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Advanced</span>
+                    <span class="skill-category">Technology</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Data Analysis</h3>
+                    <p class="skill-description">Learn Excel, SQL, Python, and data visualization to make data-driven decisions.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 30 hours</span>
+                        <span><i class="fas fa-users"></i> 11.2k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>76%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 76%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$99</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Emotional Intelligence -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Emotional Intelligence" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Life Skills</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Emotional Intelligence</h3>
+                    <p class="skill-description">Understand emotions, build better relationships, and lead with empathy.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 8 hours</span>
+                        <span><i class="fas fa-users"></i> 14.6k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>93%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 93%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">Free</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Photography -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Photography" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">All Levels</span>
+                    <span class="skill-category">Creative</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Photography</h3>
+                    <p class="skill-description">Master composition, lighting, and editing. Capture stunning photos with any camera.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 15 hours</span>
+                        <span><i class="fas fa-users"></i> 8.9k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$59</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Time Management -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Time Management" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Life Skills</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Time Management</h3>
+                    <p class="skill-description">Boost productivity, beat procrastination, and get more done in less time.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 6 hours</span>
+                        <span><i class="fas fa-users"></i> 32.4k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>96%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 96%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">Free</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10: UI/UX Design -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="UI/UX Design" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Intermediate</span>
+                    <span class="skill-category">Design</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">UI/UX Design</h3>
+                    <p class="skill-description">Design beautiful, user-friendly apps and websites with Figma and prototyping tools.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 22 hours</span>
+                        <span><i class="fas fa-users"></i> 10.1k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>84%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 84%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$89</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11: Yoga & Mindfulness -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Yoga" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Health</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Yoga & Mindfulness</h3>
+                    <p class="skill-description">Reduce stress, improve flexibility, and find inner peace through daily practice.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 12 hours</span>
+                        <span><i class="fas fa-users"></i> 16.7k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>89%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 89%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">Free</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12: Artificial Intelligence -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Advanced</span>
+                    <span class="skill-category">Technology</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Artificial Intelligence</h3>
+                    <p class="skill-description">Understand machine learning, neural networks, and build AI-powered applications.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 40 hours</span>
+                        <span><i class="fas fa-users"></i> 6.3k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>71%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 71%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$149</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 13: Copywriting -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Copywriting" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Intermediate</span>
+                    <span class="skill-category">Marketing</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Copywriting</h3>
+                    <p class="skill-description">Write persuasive copy that sells. Master storytelling, headlines, and conversion techniques.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 14 hours</span>
+                        <span><i class="fas fa-users"></i> 9.8k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$49</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 14: Leadership -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Leadership" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Intermediate</span>
+                    <span class="skill-category">Business</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Leadership Skills</h3>
+                    <p class="skill-description">Lead teams effectively, make decisions, and inspire others to achieve great results.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 16 hours</span>
+                        <span><i class="fas fa-users"></i> 12.3k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$69</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 15: Video Editing -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="image/video-editing.jpg" alt="Video Editing"> class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Creative</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Video Editing</h3>
+                    <p class="skill-description">Edit professional videos with Premiere Pro and DaVinci Resolve. Create engaging content.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 20 hours</span>
+                        <span><i class="fas fa-users"></i> 7.5k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>81%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 81%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$59</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 16: Negotiation -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Negotiation" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Intermediate</span>
+                    <span class="skill-category">Business</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Negotiation</h3>
+                    <p class="skill-description">Master the art of negotiation. Get better deals, salaries, and outcomes in any situation.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 10 hours</span>
+                        <span><i class="fas fa-users"></i> 8.9k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$79</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 17: Creative Writing -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Creative Writing" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">Beginner</span>
+                    <span class="skill-category">Creative</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Creative Writing</h3>
+                    <p class="skill-description">Unlock your imagination. Write stories, poems, and scripts that captivate readers.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 14 hours</span>
+                        <span><i class="fas fa-users"></i> 11.2k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">Free</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 18: Excel Mastery -->
+            <div class="skill-card">
+                <div class="skill-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Excel" class="skill-image">
+                    <div class="skill-overlay"></div>
+                    <span class="skill-level">All Levels</span>
+                    <span class="skill-category">Technology</span>
+                </div>
+                <div class="skill-content">
+                    <h3 class="skill-title">Excel Mastery</h3>
+                    <p class="skill-description">Become an Excel pro with formulas, pivot tables, macros, and data visualization.</p>
+                    <div class="skill-meta">
+                        <span><i class="fas fa-clock"></i> 18 hours</span>
+                        <span><i class="fas fa-users"></i> 24.6k</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="progress-label">
+                            <span>Completion</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress-bar-custom">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-footer">
+                        <div class="skill-price">$39</div>
+                        <a href="#" class="btn-skill">Start <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-wrapper">
+            <a href="#" class="btn-load-more">
+                <i class="fas fa-spinner"></i> Load More Skills
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER (SAME AS HOMEPAGE) ========== -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>SkillSpark</span>
+                </div>
+                <p class="footer-description">Ignite your potential with quick, practical skills. Learn something new in minutes and transform your life.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-title">Quick Links</h5>
+                <ul class="footer-menu">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="skills.html"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                    <li><a href="categories.html"><i class="fas fa-chevron-right"></i> Categories</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Popular Skills</h5>
+                <ul class="footer-menu">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Coding Basics</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Graphic Design</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Money Management</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Public Speaking</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Stay Updated</h5>
+                <p class="newsletter-text">Subscribe to get new skill alerts.</p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn-subscribe" type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@skillspark.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2026 SkillSpark. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="legal-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-shape shape-1"></div>
+    <div class="footer-shape shape-2"></div>
+    <div class="footer-shape shape-3"></div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNavbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Scroll to top button logic
+    const scrollBtn = document.getElementById('scrollBtn');
+    
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+    
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>

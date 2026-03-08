@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSpark · About Us</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+            overflow-x: hidden;
+        }
+
+        /* ========== NAVBAR (TRANSPARENT WITH ORANGE TEXT) ========== */
+        .navbar-transparent {
+            background: transparent !important;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+            z-index: 1000;
+        }
+
+        .navbar-transparent.scrolled {
+            background: rgba(10, 20, 30, 0.85) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.8rem 0;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-modern {
+            font-weight: 800;
+            font-size: 1.9rem;
+            letter-spacing: -0.03em;
+            color: #f5b042 !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-icon {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            padding: 8px;
+            border-radius: 16px;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 18px -6px #f0a11e80;
+            transform: rotate(-5deg);
+            transition: transform 0.2s ease;
+        }
+
+        .brand-modern:hover .brand-icon {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .nav-link-modern {
+            font-weight: 600;
+            color: #f5b042 !important;
+            padding: 0.6rem 1.2rem !important;
+            margin: 0 0.2rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            font-size: 1.05rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link-modern:hover,
+        .nav-link-modern.active {
+            color: white !important;
+            background: rgba(245, 176, 66, 0.2);
+        }
+
+        .btn-start-modern {
+            background: rgba(245, 176, 66, 0.15);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: #f5b042 !important;
+            border-radius: 50px;
+            padding: 0.7rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #f5b042;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-start-modern:hover {
+            background: #f5b042;
+            color: #1e2f47 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -8px #f0a11e;
+            border-color: transparent;
+        }
+
+        .btn-start-modern i {
+            color: #f5b042;
+            transition: all 0.3s;
+        }
+
+        .btn-start-modern:hover i {
+            color: #1e2f47;
+        }
+
+        .navbar-toggler-modern {
+            border: 1px solid #f5b042;
+            background: rgba(245, 176, 66, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 0.7rem 1rem;
+            border-radius: 50px;
+        }
+
+        .navbar-toggler-modern .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 176, 66, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ========== SCROLL TO TOP BUTTON ========== */
+        #scrollBtn {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 55px;
+            height: 55px;
+            border-radius: 30px;
+            background: #f5b042;
+            color: #1e2f47;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            z-index: 99;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        #scrollBtn:hover {
+            background: #ffb85c;
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 18px 35px rgba(240, 161, 30, 0.5);
+        }
+
+        /* ========== ABOUT PAGE HEADER (DIFFERENT ANIMATION) ========== */
+        .about-header {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e2f47 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* New wave animation */
+        .wave-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f5b042" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: waveMove 8s infinite alternate;
+        }
+
+        @keyframes waveMove {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-20px) scale(1.02); }
+        }
+
+        .spark-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #f5b042;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: sparkFloat 4s infinite;
+        }
+
+        .spark:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .spark:nth-child(2) { top: 50%; left: 20%; animation-delay: 0.5s; width: 6px; height: 6px; }
+        .spark:nth-child(3) { top: 80%; left: 30%; animation-delay: 1s; }
+        .spark:nth-child(4) { top: 30%; left: 50%; animation-delay: 1.5s; width: 8px; height: 8px; }
+        .spark:nth-child(5) { top: 60%; left: 70%; animation-delay: 2s; }
+        .spark:nth-child(6) { top: 40%; left: 80%; animation-delay: 2.5s; width: 5px; height: 5px; }
+        .spark:nth-child(7) { top: 70%; left: 90%; animation-delay: 3s; }
+        .spark:nth-child(8) { top: 90%; left: 40%; animation-delay: 3.5s; }
+
+        @keyframes sparkFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            25% { transform: translate(20px, -20px) scale(1.5); opacity: 0.8; }
+            50% { transform: translate(-20px, 20px) scale(1); opacity: 0.5; }
+            75% { transform: translate(20px, 20px) scale(1.3); opacity: 0.6; }
+        }
+
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            animation: slideInDown 0.8s ease;
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title span {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            animation: rotateGlow 3s infinite;
+        }
+
+        @keyframes rotateGlow {
+            0%, 100% { filter: drop-shadow(0 0 5px #f5b042); transform: rotate(0deg); }
+            50% { filter: drop-shadow(0 0 20px #f5b042); transform: rotate(2deg); }
+        }
+
+        .page-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== OUR STORY SECTION (NEW LAYOUT) ========== */
+        .story-section {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at center, rgba(245, 176, 66, 0.1), transparent);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: rotateShape 20s infinite linear;
+        }
+
+        .floating-shape-1 {
+            top: -200px;
+            right: -100px;
+            background: radial-gradient(circle at center, rgba(245, 176, 66, 0.15), transparent);
+        }
+
+        .floating-shape-2 {
+            bottom: -200px;
+            left: -100px;
+            background: radial-gradient(circle at center, rgba(30, 47, 71, 0.1), transparent);
+            animation: rotateShapeReverse 25s infinite linear;
+        }
+
+        @keyframes rotateShape {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateShapeReverse {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-image-wrapper {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.3);
+            animation: floatImage 6s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.02); }
+        }
+
+        .story-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 10s ease;
+        }
+
+        .story-image:hover {
+            transform: scale(1.1);
+        }
+
+        .story-badge {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(245, 176, 66, 0.9);
+            color: #1e2f47;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            animation: badgeSlide 3s infinite;
+        }
+
+        @keyframes badgeSlide {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .story-year {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            color: #1e2f47;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: yearPulse 2s infinite;
+        }
+
+        @keyframes yearPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .story-content {
+            padding-left: 20px;
+        }
+
+        .story-tag {
+            display: inline-block;
+            background: rgba(245, 176, 66, 0.1);
+            color: #f5b042;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(245, 176, 66, 0.2);
+        }
+
+        .story-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e2f47;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .story-title .highlight {
+            color: #f5b042;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(245, 176, 66, 0.3);
+            z-index: -1;
+            animation: underlineExpand 2s infinite;
+        }
+
+        @keyframes underlineExpand {
+            0%, 100% { width: 100%; }
+            50% { width: 120%; left: -10%; }
+        }
+
+        .story-text {
+            color: #4a5f73;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .story-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .stat-block {
+            text-align: left;
+        }
+
+        .stat-number-large {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f5b042;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+            animation: countUp 2s ease;
+        }
+
+        .stat-label-large {
+            color: #6c7a8d;
+            font-size: 0.95rem;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== MISSION & VISION SECTION ========== */
+        .mission-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 40px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid rgba(245, 176, 66, 0.1);
+            animation: cardFloat 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .mission-card:nth-child(1) { animation-delay: 0.2s; }
+        .mission-card:nth-child(2) { animation-delay: 0.4s; }
+
+        @keyframes cardFloat {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px -15px rgba(245, 176, 66, 0.3);
+            border-color: rgba(245, 176, 66, 0.3);
+        }
+
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 25px -8px #f0a11e;
+            animation: iconRotate 10s infinite linear;
+        }
+
+        @keyframes iconRotate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .mission-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 20px;
+        }
+
+        .mission-text {
+            color: #4a5f73;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .mission-shape {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle at center, rgba(245, 176, 66, 0.1), transparent);
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        /* ========== TEAM SECTION (NEW) ========== */
+        .team-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(245, 176, 66, 0.1);
+            color: #f5b042;
+            padding: 0.5rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(245, 176, 66, 0.2);
+            animation: badgeShine 2s infinite;
+        }
+
+        @keyframes badgeShine {
+            0%, 100% { box-shadow: 0 0 10px rgba(245, 176, 66, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(245, 176, 66, 0.6); }
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #4a5f73;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            animation: teamFade 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .team-card:nth-child(1) { animation-delay: 0.1s; }
+        .team-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(3) { animation-delay: 0.3s; }
+        .team-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes teamFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 45px -10px rgba(245, 176, 66, 0.3);
+        }
+
+        .team-image-wrapper {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+
+        .team-card:hover .team-image {
+            transform: scale(1.15);
+        }
+
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(245, 176, 66, 0.3));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-social {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            transform: translateY(50px);
+            transition: transform 0.4s;
+            z-index: 2;
+        }
+
+        .team-card:hover .team-social {
+            transform: translateY(0);
+        }
+
+        .team-social-link {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5b042;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .team-social-link:hover {
+            background: #f5b042;
+            color: white;
+            transform: rotate(360deg);
+        }
+
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: #f5b042;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .team-bio {
+            color: #6c7a8d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ========== VALUES SECTION ========== */
+        .values-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafd 0%, #ffffff 100%);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 30px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            animation: valuePop 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .value-card:nth-child(1) { animation-delay: 0.1s; }
+        .value-card:nth-child(2) { animation-delay: 0.2s; }
+        .value-card:nth-child(3) { animation-delay: 0.3s; }
+        .value-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes valuePop {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 40px -10px rgba(245, 176, 66, 0.3);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 20px -5px #f0a11e;
+            transition: all 0.4s;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e2f47;
+            margin-bottom: 15px;
+        }
+
+        .value-text {
+            color: #4a5f73;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .value-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(245, 176, 66, 0.1), transparent);
+            animation: rotateGlow 10s infinite linear;
+            z-index: 0;
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e2f47 0%, #2d4b6e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            animation: fadeInScale 1s ease;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .cta-title span {
+            color: #f5b042;
+            animation: colorPulse 2s infinite;
+        }
+
+        @keyframes colorPulse {
+            0%, 100% { color: #f5b042; }
+            50% { color: #ffd966; }
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-cta {
+            background: #f5b042;
+            color: #1e2f47;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-cta:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-cta:hover {
+            background: #ffb85c;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.3);
+        }
+
+        .cta-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(245, 176, 66, 0.1);
+            filter: blur(60px);
+            z-index: 1;
+        }
+
+        .cta-shape-1 {
+            top: -100px;
+            left: -100px;
+            animation: pulseShape 4s infinite;
+        }
+
+        .cta-shape-2 {
+            bottom: -150px;
+            right: -50px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: pulseShape 6s infinite reverse;
+        }
+
+        @keyframes pulseShape {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.3); opacity: 0.6; }
+        }
+
+        /* ========== FOOTER SECTION ========== */
+        .footer-section {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1e2f47 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(240, 161, 30, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -50px;
+            animation: floatShape 15s infinite alternate;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            left: -100px;
+            background: rgba(255, 255, 255, 0.02);
+            animation: floatShape 20s infinite alternate-reverse;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 20%;
+            background: rgba(240, 161, 30, 0.03);
+            animation: floatShape 12s infinite alternate;
+        }
+
+        @keyframes floatShape {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.2); }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo i {
+            font-size: 2.5rem;
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: sparkPulse 2s infinite;
+        }
+
+        @keyframes sparkPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+        }
+
+        .footer-logo span {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #f5b042;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #f5b042, transparent);
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-menu li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-menu li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-menu li a:hover {
+            color: #f5b042;
+            transform: translateX(8px);
+        }
+
+        .newsletter-form {
+            margin-bottom: 1.8rem;
+        }
+
+        .input-group {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 3px;
+        }
+
+        .input-group input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            flex: 1;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-subscribe {
+            background: linear-gradient(145deg, #f5b042, #f0891e);
+            border: none;
+            border-radius: 50px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .btn-subscribe:hover {
+            transform: scale(1.05) rotate(15deg);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-item i {
+            color: #f5b042;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-end;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: #f5b042;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+            .story-content {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-title {
+                font-size: 2rem;
+            }
+            .legal-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .navbar-transparent {
+                background: rgba(10, 20, 30, 0.5) !important;
+                backdrop-filter: blur(10px);
+                padding: 0.8rem 0;
+            }
+            #scrollBtn {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar navbar-expand-lg navbar-transparent fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand brand-modern" href="#">
+            <span class="brand-icon"><i class="fas fa-bolt"></i></span>
+            SkillSpark
+        </a>
+
+        <button class="navbar-toggler navbar-toggler-modern" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUnique" 
+                aria-controls="navbarUnique" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarUnique">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="skills.html"><i class="fas fa-code me-1"></i>Skills</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern" href="categories.html"><i class="fas fa-layer-group me-1"></i>Categories</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-modern active" href="about.html"><i class="fas fa-info-circle me-1"></i>About</a></li>
+            </ul>
+            <div class="d-flex">
+                <a href="startlearning.html" class="btn btn-start-modern">
+                    <i class="fas fa-graduation-cap"></i> 
+                    <span>Start Learning</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== ABOUT PAGE HEADER (DIFFERENT ANIMATIONS) ========== -->
+<section class="about-header">
+    <div class="wave-bg"></div>
+    <div class="spark-particles">
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+    </div>
+    <div class="container">
+        <h1 class="page-title">About <span>SkillSpark</span></h1>
+        <p class="page-subtitle">We're on a mission to make skill learning accessible, practical, and enjoyable for everyone, everywhere.</p>
+    </div>
+</section>
+
+<!-- ========== OUR STORY SECTION ========== -->
+<section class="story-section">
+    <div class="floating-shape floating-shape-1"></div>
+    <div class="floating-shape floating-shape-2"></div>
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Our team" class="story-image">
+                <div class="story-badge">
+                    <i class="fas fa-bolt me-2"></i> Since 2020
+                </div>
+                <div class="story-year">
+                    2026
+                </div>
+            </div>
+            <div class="story-content">
+                <span class="story-tag"><i class="fas fa-book-open me-2"></i>OUR JOURNEY</span>
+                <h2 class="story-title">From a <span class="highlight">small idea</span> to a global learning community</h2>
+                <p class="story-text">SkillSpark was born in 2020 when our founder, Sarah Chen, realized that traditional learning was too slow and expensive. She envisioned a platform where anyone could learn practical skills in minutes, not months.</p>
+                <p class="story-text">What started as a small YouTube channel with 10 free coding tutorials has grown into a global platform with over 600 skills, 50,000+ learners, and a community that spans 50+ countries. Today, we're proud to help people from all walks of life ignite their potential.</p>
+                <div class="story-stats">
+                    <div class="stat-block">
+                        <div class="stat-number-large">50k+</div>
+                        <div class="stat-label-large">Happy Learners</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-number-large">600+</div>
+                        <div class="stat-label-large">Skills</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-number-large">50+</div>
+                        <div class="stat-label-large">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MISSION & VISION SECTION ========== -->
+<section class="mission-section">
+    <div class="container">
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-shape"></div>
+                <div class="mission-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="mission-title">Our Mission</h3>
+                <p class="mission-text">To democratize skill learning by creating bite-sized, practical lessons that fit into anyone's busy schedule. We believe that learning should be accessible, affordable, and enjoyable for everyone, regardless of their background.</p>
+            </div>
+            <div class="mission-card">
+                <div class="mission-shape"></div>
+                <div class="mission-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3 class="mission-title">Our Vision</h3>
+                <p class="mission-text">A world where learning is a daily habit, not a chore. Where anyone can pick up a new skill in minutes and apply it immediately. We envision a global community of lifelong learners who continuously grow and adapt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CORE VALUES SECTION ========== -->
+<section class="values-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-heart me-2"></i>WHAT WE STAND FOR</span>
+            <h2>Our Core Values</h2>
+            <p>The principles that guide everything we do at SkillSpark</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-glow"></div>
+                <div class="value-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="value-title">Speed</h3>
+                <p class="value-text">We deliver skills in minutes, not hours. Every lesson is designed for quick wins and immediate application.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-glow"></div>
+                <div class="value-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="value-title">Practicality</h3>
+                <p class="value-text">No theory without practice. Every skill taught can be used in real life, starting today.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-glow"></div>
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="value-title">Community</h3>
+                <p class="value-text">We're stronger together. Our learners support each other, share wins, and grow as a community.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-glow"></div>
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="value-title">Inclusivity</h3>
+                <p class="value-text">Learning is for everyone. We keep our courses affordable and accessible to all backgrounds.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TEAM SECTION ========== -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge"><i class="fas fa-users me-2"></i>MEET THE TEAM</span>
+            <h2>The Minds Behind SkillSpark</h2>
+            <p>Passionate educators, creators, and learners dedicated to your success</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sarah Chen" class="team-image">
+                    <div class="team-overlay"></div>
+                    <div class="team-social">
+                        <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="team-social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name">Sarah Chen</h3>
+                    <p class="team-role">Founder & CEO</p>
+                    <p class="team-bio">Former educator with 10+ years of experience in ed-tech. Passionate about accessible learning.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Marcus Rodriguez" class="team-image">
+                    <div class="team-overlay"></div>
+                    <div class="team-social">
+                        <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="team-social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name">Marcus Rodriguez</h3>
+                    <p class="team-role">Head of Technology</p>
+                    <p class="team-bio">Full-stack developer and AI enthusiast. Creates our interactive learning platform.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Priya Patel" class="team-image">
+                    <div class="team-overlay"></div>
+                    <div class="team-social">
+                        <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="team-social-link"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name">Priya Patel</h3>
+                    <p class="team-role">Lead Designer</p>
+                    <p class="team-bio">Award-winning UI/UX designer who makes learning beautiful and intuitive.</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="James Wilson" class="team-image">
+                    <div class="team-overlay"></div>
+                    <div class="team-social">
+                        <a href="#" class="team-social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="team-social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3 class="team-name">James Wilson</h3>
+                    <p class="team-role">Head of Content</p>
+                    <p class="team-bio">Curriculum developer who turns complex topics into bite-sized lessons.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CTA SECTION ========== -->
+<section class="cta-section">
+    <div class="cta-shape cta-shape-1"></div>
+    <div class="cta-shape cta-shape-2"></div>
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to <span>ignite</span> your potential?</h2>
+            <p class="cta-text">Join 50,000+ learners and start mastering new skills today. It's free to get started!</p>
+            <a href="#" class="btn-cta">
+                <i class="fas fa-bolt"></i> Start Learning Now
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-logo">
+                    <i class="fas fa-bolt"></i>
+                    <span>SkillSpark</span>
+                </div>
+                <p class="footer-description">Ignite your potential with quick, practical skills. Learn something new in minutes and transform your life.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-title">Quick Links</h5>
+                <ul class="footer-menu">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="skills.html"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                    <li><a href="categories.html"><i class="fas fa-chevron-right"></i> Categories</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Contact</h5>
+                <ul class="footer-menu">
+                    <li><i class="fas fa-envelope me-2"></i> hello@skillspark.com</li>
+                    <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-map-marker-alt me-2"></i> San Francisco, CA</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-title">Stay Updated</h5>
+                <p class="newsletter-text">Subscribe to get new skill alerts.</p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn-subscribe" type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2026 SkillSpark. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="legal-links">
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-shape shape-1"></div>
+    <div class="footer-shape shape-2"></div>
+    <div class="footer-shape shape-3"></div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNavbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Scroll to top button logic
+    const scrollBtn = document.getElementById('scrollBtn');
+    
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+    
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+</body>
+</html>
